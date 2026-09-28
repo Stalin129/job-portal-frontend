@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f6f8;
+  padding: 20px;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 450px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* JobPortal Title */
+
+.register-container h1 {
+  text-align: center;
+
+  color: #2563eb;
+
+  font-size: 28px;
+
+  margin-bottom: 30px;
+}
+
+/* Create Account */
+
+.register-container h2 {
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: #222;
+}
+
+.subtitle {
+  text-align: center;
+
+  color: #666;
+
+  margin-bottom: 25px;
+}
+
+/* =========================
+   ROLE SELECTION CARDS
+========================= */
+
+.role-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px;
+
+  margin-bottom: 15px;
+
+  background: white;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: 0.2s;
+}
+
+.role-card:hover {
+  border-color: #2563eb;
+
+  background-color: #f0f5ff;
+
+  transform: translateY(-2px);
+}
+
+.role-icon {
+  font-size: 32px;
+}
+
+.role-card h3 {
+  margin: 0 0 5px;
+
+  color: #222;
+
+  font-size: 18px;
+}
+
+.role-card p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+/* =========================
+   REGISTRATION FORM
+========================= */
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: bold;
+
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   CREATE ACCOUNT BUTTON
+========================= */
+
+.create-btn {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background-color: #2563eb;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.create-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-btn {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 10px;
+
+  background: transparent;
+
+  border: none;
+
+  color: #2563eb;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 500px) {
+  .register-container {
+    padding: 25px;
+  }
+
+  .role-card {
+    padding: 15px;
+  }
+}
