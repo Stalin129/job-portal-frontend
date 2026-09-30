@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "./axiosInstance/AxiosInstance";
 
 function Register() {
   const [role, setRole] = useState("");
@@ -38,7 +39,7 @@ function Register() {
     };
 
     try{
-        const response =await axios.post("http://localhost:8080/auth/register", userData);
+        const response =await api.post("auth/register", userData);
         if(response.data== "Account created") {
           navigate("/");
         }
