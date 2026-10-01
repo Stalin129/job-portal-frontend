@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-
+    setLoading(true);
     try{
       const response =await api.post("/auth/login", {
         username,
@@ -23,6 +24,7 @@ function Login() {
         localStorage.setItem("email", response.data.email);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
+        setLoading(false);
         if(response.data.role === "EMPLOYER") {
           navigate("/employer");
         } else if(response.data.role === "RECRUITER") {
@@ -41,8 +43,18 @@ function Login() {
    catch (error) {
     alert(error.response?.data || error.message);
 }
+finally {
+  setLoading(false);
+}
 
   };
+  if (loading) {
+    return (
+        <div className="loading-overlay">
+            <div className="spinner"></div>
+            <p>Loading Candidate...</p>
+        </div>
+    );}
 
   return (
     <div className="login-page">

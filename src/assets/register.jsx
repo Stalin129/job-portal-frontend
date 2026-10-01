@@ -7,6 +7,8 @@ import api from "./axiosInstance/AxiosInstance";
 function Register() {
   const [role, setRole] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,7 +27,7 @@ function Register() {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    // Check password
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
@@ -37,8 +39,9 @@ function Register() {
       password: formData.password,
       role: role.toUpperCase(),
     };
-
+    
     try{
+      setLoading(true);
         const response =await api.post("auth/register", userData);
         if(response.data== "Account created") {
           navigate("/");
@@ -48,12 +51,19 @@ function Register() {
     catch (error) {
       console.error("Error during registration:", error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
-  // ============================
-  // STEP 1: SELECT ACCOUNT TYPE
-  // ============================
-
+if (loading) {
+    return (
+        <div className="loading-overlay">
+            <div className="spinner"></div>
+            <p>Loading Candidate...</p>
+        </div>
+    );
+  }
   if (!role) {
     return (
       <div className="register-page">
@@ -109,9 +119,6 @@ function Register() {
     );
   }
 
-  // ============================
-  // STEP 2: REGISTRATION FORM
-  // ============================
 
   return (
     <div className="register-page">

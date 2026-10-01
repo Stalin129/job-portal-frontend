@@ -138,7 +138,9 @@ function Candidate() {
             console.error("Error fetching candidate info:", error.response.data);
             setProfilecheck(true);
         }
+        
     }
+    
     const getResume = async () => {
 
         try {
@@ -198,7 +200,6 @@ function Candidate() {
     );
 
     useEffect(() => {
-
         dashboardjob();
         getcandidateinfo();
     }, []);
