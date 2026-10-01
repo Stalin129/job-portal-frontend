@@ -627,7 +627,7 @@ function Candidate() {
                                                 <p>
                                                     <span className="company">{job.job.employer.companyname}</span>
                                                     {" • "}
-                                                    {job.job.employer.location}
+                                                    {job.job.location}
                                                 </p>
                                             </div>
                                         <div className="jobstatus">
